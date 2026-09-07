@@ -19,7 +19,6 @@ def execute_with_ai_fallback(task_description):
     
     print(f"🤖 Agent Target: {task_description}")
     
-    # صياغة توجيه احترافي للأージェنت للبحث عن الثغرات والحلول البديلة
     prompt = f"""
     أنت وكيل ذكاء اصطناعي ذاتي التعلم ومبرمج مستقل. 
     مهمتك: {task_description}
@@ -30,7 +29,7 @@ def execute_with_ai_fallback(task_description):
     max_retries = 3
     for attempt in range(1, max_retries + 1):
         try:
-            print( محاولة التنفيذ رقم ({attempt}/{max_retries})...")
+            print(f"🔄 محاولة التنفيذ رقم ({attempt}/{max_retries})...")
             response = model.generate_content(prompt)
             
             print("\n--- 🧠 Agent Execution Report ---")
@@ -41,7 +40,6 @@ def execute_with_ai_fallback(task_description):
             
         except Exception as e:
             print(f"⚠️ Warning: Encountered an obstacle on attempt {attempt}: {str(e)}")
-            # في حال حدوث خطأ استثنائي، يقوم الأージェنت بتصحيح مساره ذاتياً في المحاولة التالية
             traceback.print_exc()
             if attempt == max_retries:
                 print("❌ Agent reached max retries, but logged structural alternative paths.")
