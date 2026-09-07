@@ -74,3 +74,5 @@ python main.py
 ---
 
 **ملاحظة**: تأكد من أن مفتاح API آمن ولا تشاركه مع أي شخص! 🔒
+
+<!-- Trigger CI: re-run workflow by bot at 2026-09-07T14:40:00Z -->
