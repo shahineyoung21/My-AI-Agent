@@ -1,6 +1,16 @@
 import os
+import sys
+import subprocess
+
+# تأكيد تثبيت المكتبة أوتوماتيكياً من داخل الكود لضمان عدم ظهور أي خطأ
+try:
+    import google.generativeai as genai
+except ImportError:
+    print("📦 Installing missing dependency: google-generativeai...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "google-generativeai"])
+    import google.generativeai as genai
+
 import traceback
-import google.generativeai as genai
 
 # استدعاء مفتاح الأمان والتأكد من وجوده
 api_key = os.environ.get("GEMINI_API_KEY")
@@ -11,12 +21,7 @@ if not api_key:
 genai.configure(api_key=api_key)
 
 def execute_with_ai_fallback(task_description):
-    """
-    محرك التشغيل الذاتي: يقوم بتنفيذ المهمة، وإذا حدث أي خطأ أو عقبة،
-    يعيد إرسال الخطأ للذكاء الاصطناعي لتحليل العلة وتوليد كود بديل ومصحح فوراً.
-    """
     model = genai.GenerativeModel('gemini-1.5-flash')
-    
     print(f"🤖 Agent Target: {task_description}")
     
     prompt = f"""
@@ -49,4 +54,3 @@ if __name__ == "__main__":
     print("🚀 Initializing Self-Learning Autonomous Agent Engine...")
     target_goal = "تحليل اتجاهات السوق والبيانات الرقمية، وتجاوز أي أخطاء في جلب البيانات، وتقديم استراتيجية تشغيلية دقيقة ومربحة."
     execute_with_ai_fallback(target_goal)
-    
