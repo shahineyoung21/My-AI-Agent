@@ -58,5 +58,5 @@ def execute_with_ai_fallback(task_description):
 
 if __name__ == "__main__":
     print("🚀 Initializing Self-Learning Autonomous Agent Engine...")
-    target_goal = "تحليل اتجاهات السوق والبيانات الرقمية، وتجاوز أي أخطاء في جلب البيانات، وتقديم استراتيجية تشغيل[...]")
+    target_goal = "تحليل اتجاهات السوق والبيانات الرقمية، وتجاوز أي أخطاء في جلب البيانات، وتقديم استراتيجية تشغيل[...]"
     execute_with_ai_fallback(target_goal)
