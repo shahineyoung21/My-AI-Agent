@@ -1,12 +1,27 @@
-import os
-from openai import OpenAI
+name: Run AI Agent
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
 
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[{"role": "user", "content": "Hello!"}]
-)
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
 
-print(response.choices[0].message.content)
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install google-generativeai
+
+    - name: Run Agent
+      run: python main.py
