@@ -1,28 +1,13 @@
-name: AI Agent Workflow
+# This workflow has been disabled
+# The main.py file was deleted from the repository
+# To re-enable, restore main.py or update this workflow
+name: AI Agent Workflow (DISABLED)
 
 on:
-  push:
-    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
-  run-agent:
+  placeholder:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    
-    - name: Run AI Agent
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      run: python main.py
+      - run: echo "This workflow is currently disabled"
