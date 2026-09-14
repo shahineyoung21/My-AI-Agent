@@ -39,7 +39,7 @@ def execute_with_ai_fallback(task_description):
         try:
             print(f"🔄 محاولة التنفيذ رقم ({attempt}/{max_retries})...")
             response = client.models.generate_content(
-                model="models/gemini-3.6-flash",
+                model="models/gemini-2.0-flash",
                 contents=prompt
             )
             
@@ -58,5 +58,5 @@ def execute_with_ai_fallback(task_description):
 
 if __name__ == "__main__":
     print("🚀 Initializing Self-Learning Autonomous Agent Engine...")
-    target_goal = "تحليل اتجاهات السوق والبيانات الرقمية، وتجاوز أي أخطاء في جلب البيانات، وتقديم استراتيجية تشغيل[...]"
+    target_goal = "تحليل اتجاهات السوق والبيانات الرقمية، وتجاوز أي أخطاء في جلب البيانات، وتقديم استراتيجية تشغيل محسّنة"
     execute_with_ai_fallback(target_goal)
