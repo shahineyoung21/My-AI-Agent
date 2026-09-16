@@ -1,0 +1,15 @@
+{
+  "name": "my-ai-agent",
+  "version": "1.0.0",
+  "description": "AI Agent with Google Gemini integration",
+  "scripts": {
+    "build": "echo 'Build completed'",
+    "start": "python main.py"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
